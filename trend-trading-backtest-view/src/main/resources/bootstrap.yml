@@ -4,8 +4,17 @@ spring:
       label: master
       profile: dev
       discovery:
+        enabled:  true
+        serviceId:  index-config-server
+    bus:
+      enabled: true
+      trace:
         enabled: true
-        service-id: index-config-server
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
 eureka:
   client:
     serviceUrl:
