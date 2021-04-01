@@ -21,7 +21,7 @@ import java.util.concurrent.TimeoutException;
 @EnableEurekaClient
 public class TrendTradingBackTestViewApplication {
     public static void main(String[] args) {
-        int port = 0;
+        int port = 8041;
         int defaultPort = 8041;
         int eurekaServerPort = 8761;
         int rabbitMQPort = 5672;
@@ -49,37 +49,35 @@ public class TrendTradingBackTestViewApplication {
             }
         }
 
-        if(0==port) {
-            Future<Integer> future = ThreadUtil.execAsync(() ->{
-                int p = 0;
-                System.out.printf("请于5秒钟内输入端口号, 推荐  %d ,超过5秒将默认使用 %d %n",defaultPort,defaultPort);
-                Scanner scanner = new Scanner(System.in);
-                while(true) {
-                    String strPort = scanner.nextLine();
-                    if(!NumberUtil.isInteger(strPort)) {
-                        System.err.println("只能是数字");
-                        continue;
-                    }
-                    else {
-                        p = Convert.toInt(strPort);
-                        scanner.close();
-                        break;
-                    }
-                }
-                return p;
-            });
-            try{
-                port=future.get(5,TimeUnit.SECONDS);
-            }
-            catch (InterruptedException | ExecutionException | TimeoutException e){
-                port = defaultPort;
-            }
-        }
+//        if(0==port) {
+//            Future<Integer> future = ThreadUtil.execAsync(() ->{
+//                int p = 0;
+//                System.out.printf("请于5秒钟内输入端口号, 推荐  %d ,超过5秒将默认使用 %d %n",defaultPort,defaultPort);
+//                Scanner scanner = new Scanner(System.in);
+//                while(true) {
+//                    String strPort = scanner.nextLine();
+//                    if(!NumberUtil.isInteger(strPort)) {
+//                        System.err.println("只能是数字");
+//                        continue;
+//                    }
+//                    else {
+//                        p = Convert.toInt(strPort);
+//                        scanner.close();
+//                        break;
+//                    }
+//                }
+//                return p;
+//            });
+//            try{
+//                port=future.get(5,TimeUnit.SECONDS);
+//            }
+//            catch (InterruptedException | ExecutionException | TimeoutException e){
+//                port = defaultPort;
+//            }
+//        }
 
         if(!NetUtil.isUsableLocalPort(port)) {
-            port += 1;
-            System.err.printf("端口%d被占用了，无法启动%n", port );
-//            System.exit(1);
+            port++;
         }
         new SpringApplicationBuilder(TrendTradingBackTestViewApplication.class).properties("server.port=" + port).run(args);
 

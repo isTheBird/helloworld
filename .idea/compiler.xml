@@ -6,15 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="index-config-server" />
-        <module name="third-part-index-data-project" />
-        <module name="trend-trading-backtest-service" />
         <module name="trend-trading-backtest-view" />
-        <module name="index-gather-store-service" />
-        <module name="eureka-server" />
-        <module name="index-codes-service" />
         <module name="index-zuul-service" />
+        <module name="index-codes-service" />
+        <module name="third-part-index-data-project" />
         <module name="index-data-service" />
+        <module name="trend-trading-backtest-service" />
+        <module name="index-config-server" />
+        <module name="eureka-server" />
+        <module name="index-gather-store-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
