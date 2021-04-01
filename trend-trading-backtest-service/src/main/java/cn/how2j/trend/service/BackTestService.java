@@ -119,6 +119,7 @@ public class BackTestService {
         }
         avgWinRate = totalWinRate / winCount;
         avgLossRate = totalLossRate / lossCount;
+        List<AnnualProfit> annualProfits = caculateAnnualProfits(indexDatas, profits);
         Map<String, Object> map = new HashMap<>();
         map.put("profits", profits);
         map.put("trades", trades);
@@ -126,6 +127,7 @@ public class BackTestService {
         map.put("lossCount", lossCount);
         map.put("avgWinRate", avgWinRate);
         map.put("avgLossRate", avgLossRate);
+        map.put("annualProfits", annualProfits);
         return map;
     }
 

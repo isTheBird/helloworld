@@ -23,8 +23,8 @@ import java.util.concurrent.TimeoutException;
 @EnableCaching
 public class IndexDataApplication {
     public static void main(String[] args) {
-        int port = 8021;
-        int defaultPort = 8021;
+//        int port = 8021;
+//        int defaultPort = 8021;
         int redisPort = 6379;
         int eurekaServerPort = 8761;
 
@@ -38,16 +38,16 @@ public class IndexDataApplication {
             System.exit(1);
         }
 
-        if(null!=args && 0!=args.length) {
-            for (String arg : args) {
-                if(arg.startsWith("port=")) {
-                    String strPort= StrUtil.subAfter(arg, "port=", true);
-                    if(NumberUtil.isNumber(strPort)) {
-                        port = Convert.toInt(strPort);
-                    }
-                }
-            }
-        }
+//        if(null!=args && 0!=args.length) {
+//            for (String arg : args) {
+//                if(arg.startsWith("port=")) {
+//                    String strPort= StrUtil.subAfter(arg, "port=", true);
+//                    if(NumberUtil.isNumber(strPort)) {
+//                        port = Convert.toInt(strPort);
+//                    }
+//                }
+//            }
+//        }
 
 //        if(0==port) {
 //            Future<Integer> future = ThreadUtil.execAsync(() ->{
@@ -76,10 +76,10 @@ public class IndexDataApplication {
 //            }
 //        }
 
-        if(!NetUtil.isUsableLocalPort(port)) {
-            port++;
-        }
-        new SpringApplicationBuilder(IndexDataApplication.class).properties("server.port=" + port).run(args);
+//        if(!NetUtil.isUsableLocalPort(port)) {
+//            port++;
+//        }
+        new SpringApplicationBuilder(IndexDataApplication.class).run(args);
 
     }
     @Bean
