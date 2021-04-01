@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RefreshScope
 public class ViewController {
 
-    @Value("${version}")
-    String version;
+//    @Value("${version}")
+//    String version;
 
     @GetMapping("/")
     public String view(Model m) throws Exception {
-        m.addAttribute("version", version);
+//        m.addAttribute("version", version);
         return "view";
     }
 }

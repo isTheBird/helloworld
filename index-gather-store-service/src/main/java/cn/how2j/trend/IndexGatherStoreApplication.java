@@ -14,6 +14,9 @@ import org.springframework.web.client.RestTemplate;
 
 import static cn.hutool.core.util.NetUtil.*;
 
+/**
+ * 负责采集数据到redis
+ */
 @SpringBootApplication
 @EnableEurekaClient
 @EnableHystrix

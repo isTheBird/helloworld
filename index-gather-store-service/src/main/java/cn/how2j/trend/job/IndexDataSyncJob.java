@@ -14,6 +14,9 @@ import cn.how2j.trend.pojo.Index;
 import cn.how2j.trend.service.IndexDataService;
 import cn.how2j.trend.service.IndexService;
 
+/**
+ * 定时器，负责刷新数据到redis
+ */
 public class IndexDataSyncJob extends QuartzJobBean {
 
     @Autowired

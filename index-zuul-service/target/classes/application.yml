@@ -20,3 +20,13 @@ zuul:
     api-c:
       path: /api-view/**
       serviceId: TREND-TRADING-BACKTEST-VIEW
+ribbon:
+  ReadTimeout: 5000
+  SocketTimeout: 5000
+hystrix:
+  commad:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2500

@@ -17,3 +17,7 @@ management:
       cors:
         allowed-origins: "*"
         allowed-methods: "*"
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

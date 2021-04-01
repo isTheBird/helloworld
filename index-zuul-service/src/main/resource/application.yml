@@ -20,3 +20,14 @@ zuul:
     api-c:
       path: /api-view/**
       serviceId: TREND-TRADING-BACKTEST-VIEW
+#配置ribbon和hystrix的超时时间，不然服务响应需要时间太长，导致未返回数据就触发熔断
+ribbon:
+  ReadTimeout: 5000
+  SocketTimeout: 5000
+hystrix:
+  commad:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2500

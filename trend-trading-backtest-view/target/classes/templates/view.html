@@ -46,7 +46,6 @@
 
             buyThreshold: 1.01,
             sellThreshold: 0.99,
-
         };
 
         //ViewModel
@@ -422,7 +421,7 @@
                 <span data-toggle="tooltip" data-placement="top" title="当前值低于均线，说明下跌趋势来了，就可以出售，或者再稍等等，比最近的高点低 5%，那么购买阈值就是 0.95">
             				出售阈值:<span class="glyphicon glyphicon-question-sign	" > </span>
                 </span>
-        </td>
+            </td>
             <td>
                 <select class="form-control" @change="changeParam"  v-model="sellThreshold">
                     <option v-for="i in 10" :value="1-i/100">{{1-i/100|formatNumberFilter(2)}}</option>
